@@ -17,6 +17,7 @@
             overflow-x: hidden; /* Prevent horizontal scroll due to animations */
             background-color: #1a202c; /* Dark background */
             padding-top: 60px; /* Space for the sticky TradingView widget at the top */
+            font-size: 0.9rem; /* Reduced base font size for the entire page */
         }
 
         /* Smooth scrolling */
@@ -180,7 +181,7 @@
         .career-path-steps-new {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Center all items */
             position: relative;
             z-index: 1; /* Ensure steps are above the line */
         }
@@ -204,6 +205,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.75rem; /* Space between icon and text */
+            font-size: 0.875rem; /* Base font size for career steps (text-sm equivalent) */
         }
 
         .career-step-new:hover {
@@ -241,38 +243,31 @@
             z-index: 2; /* Ensure circle is above line and step */
         }
 
-        .career-step-new:nth-child(even) { /* Alternate sides for desktop */
-            align-self: flex-end;
-            margin-left: auto; /* Push to right */
-        }
-
-        .career-step-new:nth-child(even)::before {
-            left: auto;
-            right: -15px; /* Position circle on the right of the step */
-        }
-
+        /* Remove alternating styles for desktop to ensure central alignment */
         @media (min-width: 768px) {
             .career-path-steps-new {
-                flex-direction: column; /* Keep column for the main flow */
-                align-items: center; /* Center items for the vertical line */
+                align-items: center; /* Ensure all items are centered */
             }
 
             .career-step-new {
-                max-width: 45%; /* Limit width on desktop */
-                margin-left: 0; /* Reset margin */
-                margin-right: 0; /* Reset margin */
+                max-width: 45%; /* Keep max width */
+                margin-left: auto; /* Center horizontally */
+                margin-right: auto; /* Center horizontally */
+                transform: translateX(0); /* Remove any horizontal offset */
+                font-size: 1rem; /* Slightly larger font size for desktop (text-base equivalent) */
             }
 
-            .career-step-new:nth-child(odd) {
-                align-self: flex-start; /* Align odd items to left */
-                margin-right: auto; /* Push to left */
-                transform: translateX(-15%); /* Adjusted offset from center line */
-            }
-
+            .career-step-new:nth-child(odd),
             .career-step-new:nth-child(even) {
-                align-self: flex-end; /* Align even items to right */
-                margin-left: auto; /* Push to right */
-                transform: translateX(15%); /* Adjusted offset from center line */
+                align-self: center; /* Ensure all steps are centered */
+                margin-left: auto;
+                margin-right: auto;
+                transform: translateX(0); /* Remove any horizontal offset */
+            }
+
+            .career-step-new::before {
+                left: -15px; /* Always position circle on the left of the step */
+                right: auto; /* Reset right positioning */
             }
         }
 
@@ -578,7 +573,7 @@
                             </h4>
                             <p class="text-lg sm:text-xl font-medium text-gray-300">Immediate</p>
                         </div>
-                        <div class="detail-card rounded-xl p-6 sm:p-8 text-center transition-all duration-300 shadow-lg hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden">
+                        <div class="detail-card rounded-xl p-6 sm:p-8 text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden">
                             <h4 class="text-gray-100 mb-4 sm:mb-5 text-xl sm:text-2xl flex items-center justify-center font-['Montserrat']">
                                 <i class="fas fa-money-bill-wave mr-2 sm:mr-3 text-pink-200 text-2xl sm:text-3xl animate-bounce"></i> Fixed Salary
                             </h4>
@@ -680,6 +675,44 @@
                                 <i class="fas fa-lightbulb mr-2 sm:mr-3 text-pink-200 text-2xl sm:text-3xl"></i> Problem Solving
                             </h4>
                             <p class="text-lg sm:text-xl font-medium text-gray-300">Problem-solving mindset</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Growth Section (Re-added and Streamlined) -->
+                <div class="section mb-10 sm:mb-16 relative animate-on-scroll section-card">
+                    <h2 class="text-gray-100 pb-3 sm:pb-4 mb-6 sm:mb-8 text-3xl sm:text-4xl flex items-center font-['Montserrat']">
+                        <i class="fas fa-chart-line mr-3 sm:mr-4 text-gray-900 bg-pink-400 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-md text-2xl sm:text-3xl"></i> Career Growth
+                    </h2>
+                    <p class="text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 text-gray-300 text-center">
+                        At OnePaper, we believe in recognizing talent and providing accelerated career progression for high performers.
+                    </p>
+                    <div class="career-path-container-new">
+                        <div class="career-path-steps-new">
+                            <div class="career-step-new">
+                                <span class="icon-wrapper"><i class="fas fa-user-tie"></i></span>
+                                <span>Relationship Manager</span>
+                            </div>
+                            <div class="career-step-new">
+                                <span class="icon-wrapper"><i class="fas fa-user-plus"></i></span>
+                                <span>Sr. RM</span>
+                            </div>
+                            <div class="career-step-new">
+                                <span class="icon-wrapper"><i class="fas fa-users"></i></span>
+                                <span>Team Leader</span>
+                            </div>
+                            <div class="career-step-new">
+                                <span class="icon-wrapper"><i class="fas fa-user-shield"></i></span>
+                                <span>Manager</span>
+                            </div>
+                            <div class="career-step-new">
+                                <span class="icon-wrapper"><i class="fas fa-globe-americas"></i></span>
+                                <span>Regional Manager</span>
+                            </div>
+                            <div class="career-step-new">
+                                <span class="icon-wrapper"><i class="fas fa-chess-queen"></i></span>
+                                <span>Management/Board Team</span>
+                            </div>
                         </div>
                     </div>
                 </div>
